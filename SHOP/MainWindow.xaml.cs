@@ -36,16 +36,28 @@ namespace SHOP
             Window1 window1 = new();
             window1.ShowDialog();
             user = window1.user;
+            this.Login_textbox.Text = user.login;
+            this.Password_textbox.Password = user.password;
         }
 
         private void Log_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            using(AppContext appContext = new AppContext())
+            {
+                if(appContext.Users.Where(a=>a.login == this.user.login && a.password==this.user.password) != null)
+                {
+                    //main prog open
+                }
+                else
+                {
+                    this.wrong_info.Visibility = Visibility.Visible;
+                }
+            }
         }
 
         private void Password_textbox_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            this.Background = Brushes.AliceBlue;
         }
     }
 }

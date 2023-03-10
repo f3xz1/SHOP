@@ -32,7 +32,7 @@
         <TextBox Margin="10" Height="24" Name="Name_textbox" Grid.Row =" 3" Grid.Column="1" Background="White"/>
         <Label Content="Lastname" Margin="10" Foreground="White" Grid.Row="4"/>
         <TextBox Margin="10" Height="24" Name="Surname_textbox" Grid.Row =" 4" Grid.Column="1" Background="White"/>
-        <Button Content="Register" Margin="10" Click="Reg_Button_Click" Grid.Row="5" Grid.Column="1"/>
-        <Button Content="Cancel" Margin="10" Click="Cancel_Button_Click" Grid.Row="5" Grid.Column="0"/>
+        <Button x:Name="Reg_Button" Content="Register" Margin="10" Click="Reg_Button_Click" Grid.Row="5" Grid.Column="1"/>
+        <Button x:Name="Cancel_Button" Content="Cancel" Margin="10" Click="Cancel_Button_Click" Grid.Row="5" Grid.Column="0"/>
     </Grid>
 </Window>

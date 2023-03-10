@@ -50,3 +50,14 @@ namespace SHOP
         }
     }
 }
+//monitor - lock
+
+//Thread - ThreadPool
+
+// Task
+
+// asinc await
+
+// Mutex 
+
+// simaphore (slim)

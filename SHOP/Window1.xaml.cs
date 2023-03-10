@@ -31,13 +31,29 @@ namespace SHOP
 
         private void Reg_Button_Click(object sender, RoutedEventArgs e)
         {
+            if (this.Password1_textbox.Password == this.Password2_textbox.Password)
+            {
+                this.Reg_Button.Background = Brushes.Red;
+                this.Cancel_Button.Background = Brushes.Red;
+                return;
+            }
+            using (AppContext app = new())
+            {
+                //if(app.Users)//Linq find simular Logins
+            }
+
+
             user = new User();
-            
+            user.login = this.Username_textbox.Text;
+            user.name = this.Name_textbox.Text;
+            user.surname = this.Surname_textbox.Text;
+            user.password = this.Password1_textbox.Password;
+            this.Close();
         }
 
         private void Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
+//add-migration nn
+//update
+
 namespace SHOP
 {
     /// <summary>
@@ -19,11 +23,21 @@ namespace SHOP
     /// </summary>
     public partial class Window1 : Window
     {
-        public Customer customer { get; set; }
+        public User user { get; set; }
         public Window1()    
         {
             InitializeComponent();
         }
-       
+
+        private void Reg_Button_Click(object sender, RoutedEventArgs e)
+        {
+            user = new User();
+            
+        }
+
+        private void Cancel_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

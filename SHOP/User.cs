@@ -10,13 +10,16 @@ using System.Windows.Controls;
 
 namespace SHOP
 {
+
+
+    //Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
     public class User
     {
+        public int Id { get; set; }
         public string login { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
         public string password { get; set; }
-
         public List<Product> qwe { get; set; }
 
         public User(string login, string password, string name, string surname)
@@ -32,27 +35,7 @@ namespace SHOP
         }
         public bool create_user()
         {
-            if (File.Exists(IFiled.user_path + "\\" + login + $"\\{login}.json"))
-            {
-                return false;
-            }
-            try
-            {
-                Directory.CreateDirectory(IFiled.user_path + "\\" + login);
-                File.Create(IFiled.user_path + "\\" + login + "\\Customers.json").Close();
-                File.Create(IFiled.user_path + "\\" + login + "\\Orders.json").Close();
-                JsonSerializer serializer = new JsonSerializer();
-
-                using (StreamWriter file = new StreamWriter(IFiled.user_path + "\\" + login + $"\\{login}.json", false))
-                {
-                    serializer.Serialize(file, this);
-                }
-                return true;
-            }
-            catch (Exception)
-            {
-                throw new Exception("register break");
-            }
+            return false;
         }
         public void LoadCustomers()
         {
@@ -66,7 +49,7 @@ namespace SHOP
         {
 
         }
-        public void AddOrder(Order order)
+        public void AddOrder()
         {
 
         }

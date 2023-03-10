@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,16 @@ namespace SHOP
 {
     public class Product
     {
+        public int Id { get; set; }
         public string name { get; set; }
         public double price { get; set; }
         public double quality { get; set; }
         public string description { get; set; }
-        public BitmapImage pic { get; set; }
+
+        public byte[] pic { get; set; }
+
+        [NotMapped]
+        public BitmapImage pic_bitmap { get; set; }
         public string category { get; set; }
         public Product(string name, double price, double quality, string description)
         {
@@ -36,12 +42,7 @@ namespace SHOP
         }
         public bool create_product()
         {
-
-        }
-        static public ObservableCollection<Product> GetList()
-        {
-            
-
+            return false;
         }
         public static void Upload_products()
         {

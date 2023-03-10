@@ -25,6 +25,7 @@ namespace SHOP
 
     public partial class MainWindow : Window
     {
+        public User user { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -32,10 +33,17 @@ namespace SHOP
 
         private void Reg_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Window1 window1 = new();
+            window1.ShowDialog();
+            user = window1.user;
         }
 
         private void Log_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Password_textbox_GotFocus(object sender, RoutedEventArgs e)
         {
 
         }

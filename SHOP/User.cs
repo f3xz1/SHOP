@@ -6,12 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SHOP
 {
-
-
     //Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
     public class User
     {
@@ -35,13 +34,22 @@ namespace SHOP
         }
         public bool create_user()
         {
-            return false;
+            try
+            {
+                using (AppContext db = new())
+                {
+                    db.Users.Add(this);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("CreateUserThrow");
+                throw;
+            }
+            return true;
         }
         public void LoadCustomers()
-        {
-
-        }
-        public void AddCustomer(Customer customer)
         {
 
         }

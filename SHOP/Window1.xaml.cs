@@ -31,15 +31,11 @@ namespace SHOP
 
         private void Reg_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Password1_textbox.Password == this.Password2_textbox.Password)
+            if (this.Password1_textbox.Password != this.Password2_textbox.Password)
             {
                 this.Reg_Button.Background = Brushes.Red;
                 this.Cancel_Button.Background = Brushes.Red;
                 return;
-            }
-            using (AppContext app = new())
-            {
-                //if(app.Users)//Linq find simular Logins
             }
 
 

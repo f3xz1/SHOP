@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 
@@ -24,6 +25,7 @@ namespace SHOP
 
         [NotMapped]
         public BitmapImage pic_bitmap { get; set; }
+
         public string category { get; set; }
         public Product(string name, double price, double quality, string description)
         {
@@ -42,7 +44,20 @@ namespace SHOP
         }
         public bool create_product()
         {
-            return false;
+            try
+            {
+                using (AppContext db = new())
+                {
+                    db.Product.Add(this);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("CreateProductThrow");
+                throw;
+            }
+            return true;
         }
         public static void Upload_products()
         {

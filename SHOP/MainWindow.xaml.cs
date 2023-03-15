@@ -36,8 +36,12 @@ namespace SHOP
             Window1 window1 = new();
             window1.ShowDialog();
             user = window1.user;
-            this.Login_textbox.Text = user.login;
-            this.Password_textbox.Password = user.password;
+            if (user != null)
+            {
+                user.create_user();
+                this.Login_textbox.Text = user.login;
+                this.Password_textbox.Password = user.password;
+            }
         }
 
         private void Log_Button_Click(object sender, RoutedEventArgs e)
@@ -47,6 +51,9 @@ namespace SHOP
                 if(appContext.Users.Where(a=>a.login == this.user.login && a.password==this.user.password) != null)
                 {
                     //main prog open
+                    Shop_List shop_List = new();
+                    this.Close();
+                    shop_List.Show();
                 }
                 else
                 {
@@ -55,7 +62,7 @@ namespace SHOP
             }
         }
 
-        private void Password_textbox_GotFocus(object sender, RoutedEventArgs e)
+        private void Password_textbox_GotFocus(object sender, RoutedEventArgs e) // delete or finish
         {
             this.Background = Brushes.AliceBlue;
         }

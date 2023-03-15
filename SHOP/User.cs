@@ -32,7 +32,23 @@ namespace SHOP
         {
 
         }
-        public bool create_user()
+        public async Task create_user_async()
+        {
+            try
+            {
+                using (AppContext db = new())
+                {
+                    db.Users.Add(this);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("CreateUserThrow");
+                throw;
+            }
+        }
+        public  bool create_user()
         {
             try
             {

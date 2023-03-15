@@ -7,14 +7,20 @@
         mc:Ignorable="d"
         Title="Shop_List" Height="450" Width="800">
     <Grid>
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="Kefteme"/>
+        </Menu>
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="Categories_List">
-                
-            </ListBox>
+            <ListBox x:Name="Categiries_List" Background="Aqua" />
+            <!--ItemsSource="{Binding Source=}"-->
         </Grid>
     </Grid>
 </Window>

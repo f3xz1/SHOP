@@ -22,6 +22,11 @@ namespace SHOP
         public Shop_List()
         {
             InitializeComponent();
+
+            using(AppContext db = new())
+            {
+                Categiries_List.DataContext = db.Product.Select(a => a.category);
+            }
         }
     }
 }

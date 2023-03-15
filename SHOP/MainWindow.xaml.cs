@@ -38,7 +38,7 @@ namespace SHOP
             user = window1.user;
             if (user != null)
             {
-                user.create_user();
+                var res = user.create_user_async();
                 this.Login_textbox.Text = user.login;
                 this.Password_textbox.Password = user.password;
             }
@@ -48,7 +48,7 @@ namespace SHOP
         {
             using(AppContext appContext = new AppContext())
             {
-                if(appContext.Users.Where(a=>a.login == this.user.login && a.password==this.user.password) != null)
+                if(appContext.Users.Select(a=>a.login == this.user.login && a.password==this.user.password) != null)
                 {
                     //main prog open
                     Shop_List shop_List = new();

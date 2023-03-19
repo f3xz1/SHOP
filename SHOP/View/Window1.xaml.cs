@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SHOP.Model;
 
 
 //add-migration nn
@@ -37,8 +38,6 @@ namespace SHOP
                 this.Cancel_Button.Background = Brushes.Red;
                 return;     
             }
-
-
             user = new User();
             user.login = this.Username_textbox.Text;
             user.name = this.Name_textbox.Text;

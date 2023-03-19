@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Microsoft.EntityFrameworkCore;
+using SHOP.Model;
 
 namespace SHOP
 {
